@@ -1,4 +1,4 @@
-name: CD
+name: "CD"
 
 on:
   push:
@@ -6,10 +6,7 @@ on:
       - main
 
 jobs:
-  CI:
-    uses: ./.github/workflows/ci.yml
   Deploy:
-    needs: [CI]
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
 
